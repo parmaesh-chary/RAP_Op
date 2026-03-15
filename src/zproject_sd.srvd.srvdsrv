@@ -1,5 +1,4 @@
 @EndUserText.label: 'SerDef'
 define service Zproject_sd {
   expose ZC_PROJECT as projectlist;
-  expose ZI_BOOLEAN;
 }

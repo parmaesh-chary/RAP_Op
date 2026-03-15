@@ -43,7 +43,7 @@ annotate entity ZC_PROJECT with
   } ]
   @UI.lineItem: [ {
     position: 30 ,
-    label: 'Description'
+    label: 'DescriptionS'
   } ]
   Description;
   @EndUserText.label: 'IsSensitive'

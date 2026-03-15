@@ -1,0 +1,38 @@
+managed implementation in class zbp_i_project unique;
+strict ( 2 );
+
+define behavior for ZI_PROJECT //alias <alias_name>
+persistent table zakp_proj
+lock master
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( numbering : managed, readonly ) Id;
+  field ( mandatory : create, readonly : update ) BeginDate, EndDate;
+  field ( readonly ) ProjectId, Status, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+
+  validation ValDates on save { field BeginDate, EndDate; }
+
+  determination DetProjId on modify { create; }
+
+  action ( features : instance ) setStatus result [1] $self;
+
+  mapping for zakp_proj
+    {
+      Id            = id;
+      ProjectId     = project_id;
+      Description   = description;
+      IsSensitive   = is_sensitive;
+      Status        = status;
+      BeginDate     = begin_date;
+      EndDate       = end_date;
+      CreatedBy     = created_by;
+      CreatedAt     = created_at;
+      LastChangedBy = last_changed_by;
+      LastChangedAt = last_changed_at;
+    }
+
+}
