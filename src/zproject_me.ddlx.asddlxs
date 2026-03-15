@@ -1,0 +1,112 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Project_Header',
+    typeNamePlural: 'Projects_Header',
+    title: {
+        type: #STANDARD,
+        label: 'Project',
+        value: 'ProjectId'
+        }
+}
+@Search.searchable: true
+annotate entity ZC_PROJECT with
+{
+
+  @UI.facet: [ {
+    label: 'Project Creation/Updation',
+    id: 'GeneralInfo',
+    purpose: #STANDARD,
+    position: 10 ,
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+
+  @UI.hidden: true
+  Id;
+  @EndUserText.label: 'Project Id'
+  @UI.identification: [ {
+    position: 20 ,
+    label: 'Project Id'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 ,
+    label: 'Project Id'
+  } ]
+  @UI.selectionField: [ {
+    position: 20
+  } ]
+  @Search.defaultSearchElement: true
+  ProjectId;
+  @EndUserText.label: 'Description'
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'Description'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 ,
+    label: 'Description'
+  } ]
+  Description;
+  @EndUserText.label: 'IsSensitive'
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'IsSensitive'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 ,
+    label: 'IsSensitive'
+  } ]
+  @Consumption.valueHelpDefinition: [{
+         entity: {
+             name: 'ZI_BOOLEAN',
+             element: 'Type'
+         }
+     }]
+  IsSensitive;
+  @EndUserText.label: 'Status'
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Status'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 ,
+    label: 'Status'
+  },
+  { type: #FOR_ACTION ,
+    dataAction: 'setStatus' ,
+    label: 'Approve' }]
+  @UI.selectionField: [ {
+    position: 50
+  } ]
+  Status;
+  @EndUserText.label: 'BeginDate'
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'BeginDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 ,
+    label: 'BeginDate'
+  } ]
+  BeginDate;
+  @EndUserText.label: 'EndDate'
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'EndDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 ,
+    label: 'EndDate'
+  } ]
+  EndDate;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  //   /* Associations */
+  //   _is_sensitive;
+
+}
